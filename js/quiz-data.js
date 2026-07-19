@@ -83,6 +83,52 @@ const QUIZ_DATA = {
         ],
       },
     ],
+     "fractions-1apic": {
+    titre: "Les fractions",
+    matiere: "Maths",
+    sections: [
+      {
+        titre: "1. Comparaison de fractions",
+        questions: [
+          { texte: "Compare les 2 fractions. Réponds 1 si la première est plus grande, 2 si la deuxième est plus grande, 0 si elles sont égales." },
+          { enonce: "3/4 et 5/8 :", reponse: 1 },
+          { enonce: "2/3 et 3/5 :", reponse: 1 },
+          { enonce: "1/2 et 4/8 :", reponse: 0 },
+          { enonce: "5/6 et 7/9 :", reponse: 1 },
+          { enonce: "3/10 et 1/3 :", reponse: 2 },
+        ],
+      },
+      {
+        titre: "2. Simplification de fractions",
+        questions: [
+          { texte: "Simplifie chaque fraction sous sa forme la plus simple." },
+          { enonce: "8/12 → numérateur simplifié :", reponse: 2 },
+          { enonce: "8/12 → dénominateur simplifié :", reponse: 3 },
+          { enonce: "9/6 → numérateur simplifié :", reponse: 3 },
+          { enonce: "9/6 → dénominateur simplifié :", reponse: 2 },
+          { enonce: "15/20 → numérateur simplifié :", reponse: 3 },
+          { enonce: "15/20 → dénominateur simplifié :", reponse: 4 },
+          { enonce: "10/25 → numérateur simplifié :", reponse: 2 },
+          { enonce: "10/25 → dénominateur simplifié :", reponse: 5 },
+          { enonce: "18/24 → numérateur simplifié :", reponse: 3 },
+          { enonce: "18/24 → dénominateur simplifié :", reponse: 4 },
+        ],
+      },
+      {
+        titre: "3. Addition de fractions",
+        questions: [
+          { enonce: "1/4 + 2/4 = .../4", reponse: 3 },
+          { enonce: "1/2 + 1/3 = .../6", reponse: 5 },
+          { enonce: "2/5 + 1/2 = .../10", reponse: 9 },
+          { enonce: "1/3 + 1/6 = .../6", reponse: 3 },
+          { enonce: "3/4 + 1/8 = .../8", reponse: 7 },
+        ],
+      },
+      {
+        titre: "4. Soustraction de fractions",
+        questions: [
+          { enonce: "3/4 - 1/4 = .../4", reponse: 2 },
+          { enonce: "5/6 - 1/3 = .../6", reponse: 3
   },
 
   // Modèle vide à copier pour un nouveau QCM :
