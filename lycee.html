@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lycée — MoulouaEdu</title>
+  <meta name="description" content="Cours et exercices en PDF pour le lycée." />
+  <link rel="icon" href="images/logo.png" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-level="lycee">
+
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a href="index.html" class="brand">
+        <span class="brand__mark">ME</span>
+        MoulouaEdu
+      </a>
+
+      <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <nav class="nav-menu">
+        <a href="index.html">Accueil</a>
+        <a href="college.html" data-level="college">Collège</a>
+        <a href="lycee.html" data-level="lycee" class="is-active">Lycée</a>
+        <a href="universite.html" data-level="universite">Université</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="level-hero">
+    <div class="container">
+      <span class="eyebrow">Niveau 02</span>
+      <h1>Lycée</h1>
+      <p>Cours et séries d'exercices classés par matière, du tronc commun au baccalauréat.</p>
+
+      <div class="search-bar">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.6"/><path d="M12.5 12.5L16 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <input type="text" class="search-input" placeholder="Rechercher un cours ou une matière…" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+
+      <div class="tabs">
+        <button class="tab-btn is-active" data-tab="cours">Cours</button>
+        <button class="tab-btn" data-tab="exercices">Exercices</button>
+      </div>
+
+      <div class="tab-panel is-active" data-tab-panel="cours">
+        <div class="pdf-grid" data-pdf-section="cours" data-niveau="lycee"></div>
+      </div>
+
+      <div class="tab-panel" data-tab-panel="exercices">
+        <div class="pdf-grid" data-pdf-section="exercices" data-niveau="lycee"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> MoulouaEdu — Tous droits réservés.</span>
+      <a href="index.html">Retour à l'accueil</a>
+    </div>
+  </footer>
+
+  <script src="js/pdf-data.js"></script>
+  <script src="js/script.js"></script>
+  <script>
+    document.querySelectorAll(".tab-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".tab-btn").forEach((b) => b.classList.remove("is-active"));
+        document.querySelectorAll(".tab-panel").forEach((p) => p.classList.remove("is-active"));
+        btn.classList.add("is-active");
+        document.querySelector(`[data-tab-panel="${btn.dataset.tab}"]`).classList.add("is-active");
+      });
+    });
+  </script>
+</body>
+</html>

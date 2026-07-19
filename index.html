@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MoulouaEdu — Cours et exercices en PDF</title>
+  <meta name="description" content="MoulouaEdu : cours et exercices en PDF pour le collège, le lycée et l'université." />
+  <link rel="icon" href="images/logo.png" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a href="index.html" class="brand">
+        <span class="brand__mark">ME</span>
+        MoulouaEdu
+      </a>
+
+      <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <nav class="nav-menu">
+        <a href="index.html" class="is-active">Accueil</a>
+        <a href="college.html" data-level="college">Collège</a>
+        <a href="lycee.html" data-level="lycee">Lycée</a>
+        <a href="universite.html" data-level="universite">Université</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-inner">
+      <span class="eyebrow">Cours &amp; exercices en PDF</span>
+      <h1>Tout ce qu'il faut pour <em>réviser</em>, du collège à l'université.</h1>
+      <p class="lead">
+        MoulouaEdu réunit des cours et des séries d'exercices en libre accès,
+        classés par niveau et par matière. Choisis ton niveau ci-dessous pour commencer.
+      </p>
+    </div>
+  </section>
+
+  <section class="levels">
+    <div class="container level-grid">
+
+      <a class="level-card" data-level="college" href="college.html">
+        <span class="level-card__tab">Niveau 01</span>
+        <h2>Collège</h2>
+        <p>Cours et exercices pour les quatre années du collège, matière par matière.</p>
+        <span class="level-card__link">
+          Explorer
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+
+      <a class="level-card" data-level="lycee" href="lycee.html">
+        <span class="level-card__tab">Niveau 02</span>
+        <h2>Lycée</h2>
+        <p>Du tronc commun au bac, des ressources pour préparer chaque examen.</p>
+        <span class="level-card__link">
+          Explorer
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+
+      <a class="level-card" data-level="universite" href="universite.html">
+        <span class="level-card__tab">Niveau 03</span>
+        <h2>Université</h2>
+        <p>Supports de cours et travaux dirigés pour les études supérieures.</p>
+        <span class="level-card__link">
+          Explorer
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> MoulouaEdu — Tous droits réservés.</span>
+      <span>Fait avec soin pour les élèves et étudiants.</span>
+    </div>
+  </footer>
+
+  <script src="js/pdf-data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
