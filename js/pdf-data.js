@@ -22,6 +22,7 @@ const PDF_DATA = {
     ],
     exercices: [
       { titre: "Les 4 opérations — QCM interactif", quiz: "operations-1apic", matiere: "Maths" },
+       { titre: "Les fractions — QCM interactif", quiz: "fractions-1apic", matiere: "Maths" },
       // { titre: "Exercices sur les fractions", fichier: "exo-fractions.pdf", matiere: "Mathématiques" },
     ],
   },
