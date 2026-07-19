@@ -1,0 +1,548 @@
+/* ============================================================
+   MoulouaEdu — style.css
+   Direction : "cahier & tableau noir" — l'identité d'un cahier
+   d'école marocain, revisité en propre et moderne.
+   ============================================================ */
+
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap");
+
+:root {
+  /* Palette */
+  --board: #1e3932;
+  --board-dark: #122620;
+  --chalk: #f5f3ea;
+  --paper: #fbf9f4;
+  --ink: #262420;
+  --ink-soft: #5c584f;
+  --line: rgba(38, 36, 32, 0.12);
+
+  /* Accents par niveau */
+  --accent-college: #6fa8b8;   /* craie bleue  */
+  --accent-lycee: #d9a441;     /* craie or     */
+  --accent-univ: #a8623f;      /* craie rouille*/
+  --accent: var(--accent-college);
+
+  /* Typo */
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Work Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+
+  --radius: 14px;
+  --shadow: 0 12px 30px rgba(20, 30, 25, 0.12);
+}
+
+/* ---------- Reset ---------- */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; margin: 0; padding: 0; }
+h1, h2, h3 { font-family: var(--font-display); margin: 0; }
+p { margin: 0; }
+button { font: inherit; cursor: pointer; }
+
+:focus-visible {
+  outline: 2.5px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ============================================================
+   HEADER / NAV — style "onglets de cahier"
+   ============================================================ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--board);
+  color: var(--chalk);
+  border-bottom: 3px solid var(--board-dark);
+}
+
+.nav-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--chalk);
+  letter-spacing: 0.3px;
+}
+
+.brand__mark {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: var(--accent-lycee);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 0.85rem;
+  color: var(--board-dark);
+  transform: rotate(-4deg);
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--chalk);
+  padding: 6px;
+}
+.nav-toggle svg { display: block; }
+
+.nav-menu {
+  display: flex;
+  gap: 4px;
+}
+
+.nav-menu a {
+  position: relative;
+  display: block;
+  padding: 10px 16px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: rgba(245, 243, 234, 0.78);
+  border-radius: 8px 8px 0 0;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.nav-menu a:hover {
+  color: var(--chalk);
+  background: rgba(245, 243, 234, 0.06);
+}
+
+.nav-menu a.is-active {
+  color: var(--board);
+  background: var(--chalk);
+}
+
+.nav-menu a[data-level="college"].is-active { background: var(--accent-college); color: var(--board-dark); }
+.nav-menu a[data-level="lycee"].is-active { background: var(--accent-lycee); color: var(--board-dark); }
+.nav-menu a[data-level="universite"].is-active { background: var(--accent-univ); color: var(--chalk); }
+
+/* ============================================================
+   HERO (page d'accueil) — le "tableau noir"
+   ============================================================ */
+.hero {
+  background:
+    radial-gradient(ellipse at top left, rgba(245,243,234,0.05), transparent 55%),
+    var(--board);
+  color: var(--chalk);
+  padding: 88px 0 110px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 60px;
+  background: linear-gradient(to bottom, transparent, var(--paper));
+  pointer-events: none;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+
+.hero .eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-lycee);
+  display: inline-block;
+  padding-bottom: 14px;
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 600;
+  line-height: 1.12;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--accent-lycee);
+}
+
+.hero p.lead {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  color: rgba(245, 243, 234, 0.82);
+  max-width: 52ch;
+}
+
+.hero .hero-doodle {
+  position: absolute;
+  right: 24px;
+  top: 30px;
+  opacity: 0.5;
+}
+
+/* ---------- Cartes des niveaux (index) ---------- */
+.levels {
+  margin-top: -64px;
+  position: relative;
+  z-index: 3;
+  padding-bottom: 90px;
+}
+
+.level-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.level-card {
+  background: var(--chalk);
+  border-radius: var(--radius);
+  padding: 28px 24px 26px;
+  box-shadow: var(--shadow);
+  border-top: 6px solid var(--card-accent, var(--accent-college));
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.level-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 36px rgba(20, 30, 25, 0.18);
+}
+
+.level-card[data-level="college"] { --card-accent: var(--accent-college); }
+.level-card[data-level="lycee"] { --card-accent: var(--accent-lycee); }
+.level-card[data-level="universite"] { --card-accent: var(--accent-univ); }
+
+.level-card__tab {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--card-accent);
+  font-weight: 500;
+}
+
+.level-card h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.level-card p {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+.level-card__link {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--ink);
+  padding-top: 8px;
+}
+
+.level-card__link svg { transition: transform 0.15s ease; }
+.level-card:hover .level-card__link svg { transform: translateX(3px); }
+
+/* ============================================================
+   Sections génériques
+   ============================================================ */
+.section {
+  padding: 64px 0;
+}
+
+.section-head {
+  max-width: 640px;
+  margin-bottom: 36px;
+}
+
+.section-head .eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.section-head h2 {
+  font-size: 1.9rem;
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+.section-head p {
+  color: var(--ink-soft);
+  margin-top: 10px;
+}
+
+body[data-level="college"] { --accent: var(--accent-college); }
+body[data-level="lycee"] { --accent: var(--accent-lycee); }
+body[data-level="universite"] { --accent: var(--accent-univ); }
+
+/* ---------- Page de niveau : en-tête façon onglet de classeur ---------- */
+.level-hero {
+  background: var(--board);
+  color: var(--chalk);
+  padding: 56px 0 46px;
+  border-bottom: 6px solid var(--accent);
+}
+
+.level-hero .eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.level-hero h1 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.level-hero p {
+  margin-top: 12px;
+  color: rgba(245, 243, 234, 0.8);
+  max-width: 58ch;
+}
+
+/* ---------- Barre de recherche ---------- */
+.search-bar {
+  margin-top: 28px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(245, 243, 234, 0.08);
+  border: 1px solid rgba(245, 243, 234, 0.22);
+  border-radius: 10px;
+  padding: 10px 14px;
+  max-width: 420px;
+}
+
+.search-bar svg { flex-shrink: 0; opacity: 0.7; }
+
+.search-input {
+  background: none;
+  border: none;
+  color: var(--chalk);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  width: 100%;
+}
+.search-input::placeholder { color: rgba(245, 243, 234, 0.55); }
+.search-input:focus { outline: none; }
+
+/* ---------- Onglets Cours / Exercices ---------- */
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin: 40px 0 26px;
+  border-bottom: 1px solid var(--line);
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  padding: 10px 4px 14px;
+  margin-right: 26px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  border-bottom: 3px solid transparent;
+  transform: translateY(1px);
+}
+
+.tab-btn.is-active {
+  color: var(--ink);
+  border-bottom-color: var(--accent);
+}
+
+.tab-panel { display: none; }
+.tab-panel.is-active { display: block; }
+
+/* ---------- Grille de PDF ---------- */
+.pdf-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.pdf-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--chalk);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px 18px;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.pdf-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.pdf-card__icon {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: var(--board-dark);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pdf-card__body { flex: 1; min-width: 0; }
+
+.pdf-card__matiere {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+}
+
+.pdf-card__titre {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 2px;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+
+.pdf-card__link {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink);
+  padding: 8px 12px;
+  border: 1.5px solid var(--ink);
+  border-radius: 8px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.pdf-card__link:hover {
+  background: var(--ink);
+  color: var(--chalk);
+}
+
+/* ---------- État vide ---------- */
+.empty-state {
+  border: 1.5px dashed var(--line);
+  border-radius: 12px;
+  padding: 34px 26px;
+  text-align: center;
+  color: var(--ink-soft);
+}
+
+.empty-state p { margin-bottom: 6px; }
+.empty-state__hint { font-size: 0.88rem; }
+.empty-state code {
+  font-family: var(--font-mono);
+  background: rgba(38, 36, 32, 0.06);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer {
+  background: var(--board-dark);
+  color: rgba(245, 243, 234, 0.65);
+  padding: 32px 0;
+  font-size: 0.88rem;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 860px) {
+  .level-grid { grid-template-columns: 1fr; }
+  .pdf-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 720px) {
+  .nav-toggle { display: block; }
+
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: var(--board);
+    padding: 8px 16px 16px;
+    border-bottom: 3px solid var(--board-dark);
+  }
+
+  .nav-menu.is-open { display: flex; }
+
+  .nav-menu a { border-radius: 8px; }
+
+  .hero { padding: 60px 0 90px; }
+  .levels { margin-top: -56px; }
+
+  .pdf-card {
+    flex-wrap: wrap;
+  }
+  .pdf-card__link { margin-left: auto; }
+}
