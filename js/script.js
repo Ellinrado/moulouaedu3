@@ -58,16 +58,22 @@ function initPdfLists() {
 }
 
 function cardHTML(niveau, section, item) {
-  const href = `pdf/${niveau}/${section}/${encodeURIComponent(item.fichier)}`;
+  const isQuiz = !!item.quiz;
+  const href = isQuiz
+    ? `quiz.html?quiz=${encodeURIComponent(item.quiz)}`
+    : `pdf/${niveau}/${section}/${encodeURIComponent(item.fichier)}`;
+  const icon = isQuiz ? "QCM" : "PDF";
+  const linkLabel = isQuiz ? "Faire le QCM" : "Ouvrir";
+  const linkTarget = isQuiz ? "" : ` target="_blank" rel="noopener"`;
   return `
     <article class="pdf-card" data-matiere="${escapeHTML(item.matiere || "")}" data-titre="${escapeHTML(item.titre || "").toLowerCase()}">
-      <div class="pdf-card__icon" aria-hidden="true">PDF</div>
+      <div class="pdf-card__icon" aria-hidden="true">${icon}</div>
       <div class="pdf-card__body">
         <p class="pdf-card__matiere">${escapeHTML(item.matiere || "Général")}</p>
-        <h3 class="pdf-card__titre">${escapeHTML(item.titre || item.fichier)}</h3>
+        <h3 class="pdf-card__titre">${escapeHTML(item.titre || item.fichier || "")}</h3>
       </div>
-      <a class="pdf-card__link" href="${href}" target="_blank" rel="noopener">
-        Ouvrir
+      <a class="pdf-card__link" href="${href}"${linkTarget}>
+        ${linkLabel}
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
           <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
