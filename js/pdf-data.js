@@ -21,6 +21,7 @@ const PDF_DATA = {
        // { titre: "Les fractions", fichier: "fractions.pdf", matiere: "Mathématiques" },
     ],
     exercices: [
+      { titre: "Les 4 opérations — QCM interactif", quiz: "operations-1apic", matiere: "Maths" },
       // { titre: "Exercices sur les fractions", fichier: "exo-fractions.pdf", matiere: "Mathématiques" },
     ],
   },
@@ -37,7 +38,7 @@ const PDF_DATA = {
   universite: {
     cours: [ { titre: "Statistique appliquée à la recherche", fichier: "a.pdf", matiere: "Formation doctorale : Statistique descriptive" },
             { titre: "Statistique appliquée à la recherche", fichier: "b.pdf", matiere: "Formation doctorale : Statistique multivariée" },
-            { titre: "Statistique appliquée à la recherche", fichier: "*c.pdf", matiere: "Formation doctorale : Statistique inferentielle" },
+            { titre: "Statistique appliquée à la recherche", fichier: "c.pdf", matiere: "Formation doctorale : Statistique inferentielle" },
       // { titre: "Algèbre linéaire - Chapitre 1", fichier: "algebre-chap1.pdf", matiere: "Mathématiques" },
     ],
     exercices: [
