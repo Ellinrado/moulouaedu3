@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>QCM interactif — MoulouaEdu</title>
+<meta name="description" content="Exercices interactifs corrigés automatiquement." />
+<link rel="icon" href="images/logo.png" />
+<link rel="stylesheet" href="css/style.css" />
+<style>
+  .quiz-hero {
+    background: var(--board);
+    color: var(--chalk);
+    padding: 48px 0 40px;
+  }
+  .quiz-hero .container { max-width: 820px; margin: 0 auto; padding: 0 20px; }
+  .quiz-hero .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.75;
+  }
+  .quiz-hero h1 { font-size: 2rem; margin: 6px 0 10px; }
+  .quiz-hero p { opacity: 0.9; max-width: 60ch; }
+
+  .quiz-wrap { max-width: 820px; margin: 0 auto; padding: 32px 20px 80px; }
+
+  .quiz-section {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 24px 24px 8px;
+    margin-bottom: 22px;
+  }
+  .quiz-section h2 {
+    font-size: 1.15rem;
+    color: var(--board);
+    border-bottom: 2px solid var(--accent-college);
+    padding-bottom: 10px;
+    margin-bottom: 18px;
+  }
+
+  .quiz-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-mono);
+    font-size: 1.05rem;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+  }
+  .quiz-row .num {
+    font-family: var(--font-body);
+    font-weight: 600;
+    color: var(--ink-soft);
+    min-width: 22px;
+  }
+  .quiz-row input[type="text"] {
+    width: 90px;
+    padding: 8px 10px;
+    border: 1.5px solid var(--line);
+    border-radius: 8px;
+    font-family: var(--font-mono);
+    font-size: 1.05rem;
+    text-align: center;
+    background: var(--chalk);
+    color: var(--ink);
+    transition: border-color .15s, background .15s;
+  }
+  .quiz-row input[type="text"]:focus {
+    outline: none;
+    border-color: var(--accent-college);
+  }
+  .quiz-row input.is-correct {
+    background: #e2f4e6;
+    border-color: #4b9b63;
+    color: #1f5c33;
+  }
+  .quiz-row input.is-wrong {
+    background: #fbe7e5;
+    border-color: #c25c4f;
+    color: #8a2f24;
+  }
+
+  .probleme-text { font-family: var(--font-body); font-size: 1rem; margin-bottom: 14px; }
+  .probleme-text p { margin-bottom: 4px; }
+
+  .quiz-actions {
+    position: sticky;
+    bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    box-shadow: var(--shadow);
+  }
+  .btn-check {
+    background: var(--board);
+    color: var(--chalk);
+    border: none;
+    border-radius: 10px;
+    padding: 13px 24px;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  .btn-check:hover { background: var(--board-dark); }
+  .btn-reset {
+    background: transparent;
+    color: var(--ink-soft);
+    border: 1.5px solid var(--line);
+    border-radius: 10px;
+    padding: 12px 18px;
+    font-size: 0.92rem;
+  }
+  .btn-reset:hover { border-color: var(--ink-soft); }
+
+  .score-display {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: var(--ink);
+  }
+  .score-display.good { color: #1f5c33; }
+  .score-display.mid { color: #8a6d1f; }
+  .score-display.bad { color: #8a2f24; }
+
+  .back-link {
+    display: inline-block;
+    margin-bottom: 18px;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+  }
+  .back-link:hover { color: var(--board); }
+</style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a href="index.html" class="brand">
+        <span class="brand__mark">ME</span>
+        MoulouaEdu
+      </a>
+      <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <nav class="nav-menu">
+        <a href="index.html">Accueil</a>
+        <a href="college.html" data-level="college">Collège</a>
+        <a href="lycee.html" data-level="lycee">Lycée</a>
+        <a href="universite.html" data-level="universite">Université</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="quiz-hero">
+    <div class="container">
+      <span class="eyebrow">QCM interactif</span>
+      <h1 id="quiz-title">Chargement…</h1>
+      <p id="quiz-subtitle"></p>
+    </div>
+  </section>
+
+  <div class="quiz-wrap">
+    <a class="back-link" href="college.html">&larr; Retour au Collège</a>
+
+    <div id="quiz-container">
+      <div class="quiz-section"><p>Chargement du QCM…</p></div>
+    </div>
+
+    <div class="quiz-actions">
+      <button type="button" class="btn-check" id="check-btn">Vérifier mes réponses</button>
+      <button type="button" class="btn-reset" id="reset-btn">Recommencer</button>
+      <span class="score-display" id="score-display"></span>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> MoulouaEdu — Tous droits réservés.</span>
+      <a href="index.html">Retour à l'accueil</a>
+    </div>
+  </footer>
+
+  <script src="js/quiz-data.js"></script>
+  <script src="js/quiz-engine.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
