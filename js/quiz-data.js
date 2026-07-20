@@ -83,7 +83,7 @@ const QUIZ_DATA = {
         ],
       },
     ],
-   
+     },
   "fractions-1apic": {
     titre: "Les fractions",
     matiere: "Maths",
