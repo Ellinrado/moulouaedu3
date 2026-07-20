@@ -84,7 +84,7 @@ const QUIZ_DATA = {
       },
     ],
    
-   "fractions-1apic": {
+  "fractions-1apic": {
     titre: "Les fractions",
     matiere: "Maths",
     sections: [
@@ -129,9 +129,34 @@ const QUIZ_DATA = {
         titre: "4. Soustraction de fractions",
         questions: [
           { enonce: "3/4 - 1/4 = .../4", reponse: 2 },
-          { enonce: "5/6 - 1/3 = .../6", reponse: 3
+          { enonce: "5/6 - 1/3 = .../6", reponse: 3 },
+          { enonce: "7/8 - 1/2 = .../8", reponse: 3 },
+          { enonce: "2/3 - 1/6 = .../6", reponse: 3 },
+          { enonce: "9/10 - 2/5 = .../10", reponse: 5 },
+        ],
+      },
+      {
+        titre: "5. Multiplication de fractions",
+        questions: [
+          { enonce: "2/3 × 3/4 = .../12", reponse: 6 },
+          { enonce: "1/2 × 4/5 = .../10", reponse: 4 },
+          { enonce: "3/5 × 2/7 = .../35", reponse: 6 },
+          { enonce: "5/6 × 1/3 = .../18", reponse: 5 },
+          { enonce: "2/9 × 3/4 = .../36", reponse: 6 },
+        ],
+      },
+      {
+        titre: "6. Division de fractions",
+        questions: [
+          { enonce: "2/3 : 4/5 = .../12", reponse: 10 },
+          { enonce: "1/2 : 3/4 = .../6", reponse: 4 },
+          { enonce: "5/6 : 2/3 = .../12", reponse: 15 },
+          { enonce: "3/4 : 5/8 = .../20", reponse: 24 },
+          { enonce: "2/5 : 1/2 = .../5", reponse: 4 },
+        ],
+      },
+    ],
   },
-
   // Modèle vide à copier pour un nouveau QCM :
   // "identifiant-unique": {
   //   titre: "Titre affiché en haut de la page",
